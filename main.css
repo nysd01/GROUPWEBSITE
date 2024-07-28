@@ -138,6 +138,8 @@ footer a {
         padding: 10px;
         background-color: #0f2112;
         margin: 20px 0;
+        border: 1px solid #ddd;
+        
     }
     
    .product-grid, .category-grid {
@@ -197,4 +199,6 @@ footer a {
         border-radius: 10px;
         padding: 20px;
       }
-      
+      .HM{
+        color: rgb(111, 255, 28);
+    }    
