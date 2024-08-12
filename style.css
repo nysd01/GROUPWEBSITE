@@ -1,0 +1,52 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    background-color: azure;
+    color: black;
+    padding: 20px 50px;
+}
+.navTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.search{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: aquamarine;
+    padding: 20px 10px;
+}
+.searchInput{
+    border:none;
+    background-color: transparent;
+}
+.limitedOffer{
+    font-size:25px;
+    border-bottom: 2px solid aquamarine;
+}
+.navBottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menuItem{
+    margin-right: auto;
+    cursor: pointer;
+    color: rgb(11, 47, 47);
+}
+ .slider{
+    background-color: rgb(130, 255, 72) ;
+    width: 500vw;
+}
+.slideWrapper {
+    display: flex;
+    width: 100vw;
+}
+.sliderItem{
+    width: 100vw;
+    justify-content: space-between;    
+}
