@@ -39,15 +39,22 @@ nav{
     color: rgb(11, 47, 47);
 }
  .slider{
-    background-color: rgb(130, 255, 72) ;
+    background:burlywood;
     width: 500vw;
 }
 .slideWrapper {
     display: flex;
-    width: 100vw;
+    width: 500vw;
 }
 .sliderItem{
     width: 100vw;
-    justify-content: space-between;
-        
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.slidderTitle{
+    position: absolute;
+    top: 30%;
+    right: 20%;
+
 }
