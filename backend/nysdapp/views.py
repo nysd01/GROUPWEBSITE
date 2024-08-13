@@ -1,9 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
-def calculate():
-    x = 1
-    y = 2
-def say_hello(request): 
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
-    return HttpResponse('NYSD YOU ARE THE BOSS')
+def home(request):
+    return render(request, 'main.html')
+
+def chat(request):
+    if request.method == 'POST':
+        return redirect(reverse('home'))
+    return render(request, 'chat.html')
+
+def login(request):
+    return render(request, 'Login.html')
+
+def service(request):
+    return render(request, 'services.html')  
+
+def register(request):
+    return render(request, 'Register.html')       

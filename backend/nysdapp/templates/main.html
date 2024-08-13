@@ -4,25 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width = device-width,initial-scale =1.0">
         <TITLE>ELECTRONYSD</TITLE>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 
     </HEAD>
     
     
     <body>
         <header>
-            <img id="logo" src="image/logo nysd.jpg" width="100px" height="100px" alt="NYSD" style="box-shadow: 0 0 10px rgba(14, 6, 243, 0.655);">
+            <img id="logo" src="{% static 'image/logo nysd.jpg'%}" width="100px" height="100px" alt="NYSD" style="box-shadow: 0 0 10px rgba(14, 6, 243, 0.655);">
             <h1 class="search-bar">
             <input type="search" placeholder="Search..." style="width: 300px;height:30px; font-size: 20; font-family:Georgia, 'Times New Roman', Times, serif;border-radius: 10px;background-color: rgb(17, 49, 49);">
             <button type="submit" style="border-radius: 40px;border-color: rgb(148, 27, 169);color: rgb(18, 18, 86);height: 29px;width:100px;background-color: rgb(61, 58, 58);text-align: center;font-size:18px;">Search</button>
             </h1>
             <nav>
              
-                <a class="HM" href="main.html"><img src="image/home-page.png" width="40" height="40">Home</a>
-                <a class="CB" href="chat.html"><img src="image/chatbot.png" width="40" height="40">Chat service</a>
-                <a class="CN" href="#"><img src="image/telephone.png" width="40" height="40">Contact</a>
-                <a class="AB" href="service.html"><img src="image/information.png" width="40" height="40">About</a>
-                <a  href="LOGIN.html"><img src="image/login.png" width="40" height="40"></a>
+                <a class="HM" href="{% url 'home' %}"><img src="{% static 'image/home-page.png'%}" width="40" height="40">Home</a>
+                <a class="CB" href="{% url 'chat' %}"><img src="{% static 'image/chatbot.png'%}" width="40" height="40">Chat</a>
+                <a class="CN" href="#"><img src="{% static 'image/telephone.png'%}" width="40" height="40">Contact</a>
+                <a class="AB" href="{% url 'service' %}"><img src="{% static 'image/information.png'%}" width="40" height="40">Service</a>
+                <a  href="{% url 'Login' %}"><img src="{% static 'image/login.png'%}" width="40" height="40"></a>
 
             </nav>
            
@@ -32,7 +33,7 @@
             <section class ="presentation">
                 <div class="video-container" >
                      <video autoplay loop muted>
-                      <source src="mainvideo.mp4" type="video/mp4" >
+                      <source src="{% static 'mainvideo.mp4'%}" type="video/mp4" >
                        
                     Your browser does not support the video tag.
                       </video>
@@ -45,55 +46,55 @@
                 <section class="featured-products">
                     <h2>Featured Products</h2>
                     <div class="cart-icon">
-                        <img src="image/Cart.jpeg" alt="Cart" width="30" height="30" style="border-radius:30px;">
+                        <img src="{% static 'image/Cart.jpeg'%}" alt="Cart" width="30" height="30" style="border-radius:30px;">
                         <span id="cart-count">0</span>
                     </div>
                     <div class="product-grid">
                         
                         <div class="product">
-                            <img src="image/arduino.jpg" alt="Product 1" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/arduino.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
                             <h3>ARDUINO UNO</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/sonar-sensor.jpg" alt="Product " style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/sonar-sensor.jpg'%}" alt="Product " style="width:200PX; height: 200PX;">
                             <h3>SONAR SENSOR</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/potentiometer.jpg" alt="Product " style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/potentiometer.jpg'%}" alt="Product " style="width:200PX; height: 200PX;">
                             <h3>POTENTIOMETER</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/breadboard .jpg" alt="Product" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/breadboard .jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
                             <h3>BREAD BOARD</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/step-motor.jpg" alt="Product" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/step-motor.jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
                             <h3>STEP MOTOR</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/7segment.jpg" alt="Product" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/7segment.jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
                             <h3>7-SEGMENTS</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/battery.jpg" alt="Product 1" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/battery.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
                             <h3>9V BATTERY</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
                         </div>
                         <div class="product">
-                            <img src="image/switches.jpg" alt="Product 1" style="width:200PX; height: 200PX;">
+                            <img src="{% static 'image/switches.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
                             <h3>BOTTONS</h3>
                             <p>$10.00</p>
                             <a href="#" class="btn">Buy Now</a>
@@ -106,23 +107,23 @@
                     <h2>Categories</h2>
                     <div class="category-grid">
                         <div class="category">
-                            <img src="image/sensors.jpg" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
+                            <img src="{% static 'image/sensors.jpg'%}" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
                             <h3>Sensors</h3>
                         </div>
                         <div class="category">
-                            <img src="image/microcontroller.jpg" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
+                            <img src="{% static 'image/microcontroller.jpg'%}" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
                             <h3>Microcontrollers</h3>
                         </div>
                         <div class="category">
-                            <img src="image/led.jpg" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
+                            <img src="{% static 'image/led.jpg'%}" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
                             <h3>Leds</h3>
                         </div>
                         <div class="category">
-                            <img src="image/motors.jpg" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
+                            <img src="{% static 'image/motors.jpg'%}" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
                             <h3>Motors</h3>
                         </div>
                         <div class="category">
-                            <img src="image/wires.jpg" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
+                            <img src="{% static 'image/wires.jpg'%}" alt="Category 1" style="height: 180PX;width: 180PX;border-radius: 10px;">
                             <h3>cables</h3>
                         </div>
                         
@@ -168,10 +169,10 @@
         <footer>
             <p>© 2023 Nysd.io. All rights reserved.</p>
             <nav>
-                <a href="#"><img src="image/facebook.png"width="35px" height="35px"></a>
-                <a href="#"><img src="image/instagram.png"width="35px" height="35px"></a>
-                <a href="#"><img src="image/linkedin.png"width="35px" height="35px"></a>
-                <a href="#"><img src="image/twitter.png" width="35px" height="35px"></a>
+                <a href="#"><img src="{% static 'image/facebook.png'%}"width="35px" height="35px"></a>
+                <a href="#"><img src="{% static 'image/instagram.png'%}"width="35px" height="35px"></a>
+                <a href="#"><img src="{% static 'image/linkedin.png'%}"width="35px" height="35px"></a>
+                <a href="#"><img src="{% static 'image/twitter.png'%}" width="35px" height="35px"></a>
             </nav>
 
         </footer>
