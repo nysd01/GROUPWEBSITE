@@ -13,17 +13,21 @@
     <body>
         <header>
             <img id="logo" src="{% static 'image/logo nysd.jpg'%}" width="100px" height="100px" alt="NYSD" style="box-shadow: 0 0 10px rgba(14, 6, 243, 0.655);">
-            <h1 class="search-bar">
-            <input type="search" placeholder="Search..." style="width: 300px;height:30px; font-size: 20; font-family:Georgia, 'Times New Roman', Times, serif;border-radius: 10px;background-color: rgb(17, 49, 49);">
+        <h1 class="search-bar">
+
+        <form action="{% url 'search' %}" method="get">    
+            <input type="search" name="q" style="width: 300px;height:30px; font-size: 20; font-family:Georgia, 'Times New Roman', Times, serif;border-radius: 10px;background-color: rgb(17, 49, 49);">
             <button type="submit" style="border-radius: 40px;border-color: rgb(148, 27, 169);color: rgb(18, 18, 86);height: 29px;width:100px;background-color: rgb(61, 58, 58);text-align: center;font-size:18px;">Search</button>
-            </h1>
+        </form>
+
+        </h1>
             <nav>
              
                 <a class="HM" href="{% url 'home' %}"><img src="{% static 'image/home-page.png'%}" width="40" height="40">Home</a>
                 <a class="CB" href="{% url 'chat' %}"><img src="{% static 'image/chatbot.png'%}" width="40" height="40">Chat</a>
                 <a class="CN" href="#"><img src="{% static 'image/telephone.png'%}" width="40" height="40">Contact</a>
                 <a class="AB" href="{% url 'service' %}"><img src="{% static 'image/information.png'%}" width="40" height="40">Service</a>
-                <a  href="{% url 'Login' %}"><img src="{% static 'image/login.png'%}" width="40" height="40"></a>
+                <a  href="{% url 'login' %}"><img src="{% static 'image/login.png'%}" width="40" height="40"></a>
 
             </nav>
            

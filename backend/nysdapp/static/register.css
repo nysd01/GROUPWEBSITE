@@ -12,11 +12,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgb(63, 203, 228);
+    background: rgb(0, 50, 59);
 }
 
 .wrapper {
-    width: 800px;
+    width: 600px;
     height: fit-content;
     background: rgb(10, 131, 123);
     color: #fff;
