@@ -1,11 +1,14 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
+from django.contrib import admin
+
 
 urlpatterns = [
     path('home/', views.home, name='home'),
     path('chat/', views.chat,name='chat'),
-    path('Login/',views.login,name='Login'),
+    path('login/',views.login,name='login'),
     path('service/',views.service,name='service'),
-    path('Register/',views.register,name='Register')
+    path('register/',views.register,name='register'),
+    path('search/', views.search_view, name='search'),
 
 ]
