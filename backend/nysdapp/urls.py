@@ -6,7 +6,7 @@ from django.contrib import admin
 urlpatterns = [
     path('home/', views.home, name='home'),
     path('chat/', views.chat,name='chat'),
-    path('contact/', views.chat,name='contact'),
+    path('contact/', views.contact,name='contact'),
     path('login/',views.login,name='login'),
     path('service/',views.service,name='service'),
     path('register/',views.register,name='register'),
