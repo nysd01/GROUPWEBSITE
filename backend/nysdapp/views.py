@@ -18,6 +18,9 @@ def login(request):
 def service(request):
     return render(request, 'services.html')  
 
+def contact(request):
+    return render(request, 'contact.html')      
+
 def register(request):
     if request.method == "POST":
         username = request.POST.get('username')
