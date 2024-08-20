@@ -5,6 +5,7 @@
                 border: black;
                 width: 70%;
                 height: 100%;
+                align-items: center;
                 text-shadow: 2px 2px red;
             }
             body{
