@@ -1,18 +1,11 @@
 @import url("https://font.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing :border-box;
-    font-family: "Poppins",sans-serif;
-}
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgb(63, 203, 228);
+    background: rgb(2, 67, 78);
 }
 
 .wrapper {
@@ -72,3 +65,18 @@ padding: 20px 45px 20px 20px;
     font-weight: 600;
 }
 
+.wrapper .register-link {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: rgb(143, 196, 243);
+    text-decoration: none;
+    font-weight : 600;
+}
+
+.register-link p a :hover{
+    text-decoration: underline; 
+}
