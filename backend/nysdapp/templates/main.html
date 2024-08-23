@@ -50,8 +50,10 @@
                 <section class="featured-products">
                     <h2>Featured Products</h2>
                     <div class="cart-icon">
+                        <a href="{% url 'cart' %}">
                         <img src="{% static 'image/Cart.jpeg'%}" alt="Cart" width="30" height="30" style="border-radius:30px;">
-                        <span id="cart-count">0</span>
+                        <span id="cart-count">0</span> 
+                        </a>
                     </div>
                     <div class="product-grid">
                         
