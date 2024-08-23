@@ -30,16 +30,29 @@ def register(request):
         pass1 = request.POST.get('pass1')
         pass2 = request.POST.get('pass2')
 
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists")
+            return redirect('/register/')
+
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, "Email already exists")
+            return redirect('/register/')    
+
+        elif pass1 != pass2:
+            messages.error(request,"Password does not match!")
+            return render(request, 'register.html')
+
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = firstname
         myuser.last_name = lastname
 
         myuser.save()
 
-        messages.success(request, 'your account has been successfully created.')
+        messages.success(request, 'your account has been successfully created')
         return redirect('login')
+    else:
 
-    return render(request, 'register.html')
+        return render(request, 'register.html')
 
 def search_view(request):
     if request.method == 'GET':
