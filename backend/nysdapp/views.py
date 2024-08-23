@@ -16,7 +16,7 @@ def login(request):
     return render(request, 'login.html')
 
 def service(request):
-    return render(request, 'services.html')  
+    return render(request, 'service.html')  
 
 def contact(request):
     return render(request, 'contact.html')      
