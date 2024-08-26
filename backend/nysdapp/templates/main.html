@@ -45,6 +45,10 @@
                       </video>
                 </div>
                 <div class="maincontent">
+                    {% for message in messages %}
+                    <div class="errormessage">{{ message }}</div>
+                    {% endfor %}
+           
                     <p class="text-gradient">WELCOME TO ELECTRONYSD</p>
                 </div>
             </section>
