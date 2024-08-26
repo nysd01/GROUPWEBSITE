@@ -1,5 +1,5 @@
 body{
-    background-color: #282525;
+    background-color: #63badf;
     
 }
 header {
@@ -7,16 +7,16 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(62, 64, 66);
+    background-color: rgb(123, 160, 197);
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(250, 250, 250, 0.92);
+    box-shadow: 0 0 10px rgba(38, 91, 7, 0.92);
 }   
 nav {
     display: inline-flexbox;
     align-items: center;
 }
 nav a {
-    color: rgb(217, 217, 217);
+    color: rgb(15, 12, 12);
     margin-left: 20px;
     text-decoration: none;
     font-size: 18px;
@@ -59,7 +59,7 @@ video {
     margin-top:0px;
     width: 100%;
     overflow: hidden;
-    background-color: rgba(71, 78, 71, 0.473);
+    background-color: rgba(11, 223, 255, 0.473);
 }
 footer {
     height: 50px;
@@ -75,10 +75,20 @@ footer {
 .text-gradient{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px;
+    color: white;
 }  
 footer a {
     color: white;
     text-decoration: none;
+}
+.username {
+  position: absolute;
+  top: 10px; 
+  left:180px; 
+  z-index: 2; 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 18px;
+  font-weight: bold; 
 }
 .search-bar {
     position: relative;
@@ -137,7 +147,7 @@ footer a {
     
    .featured-products, .categories, .about-us, .testimonials, .newsletter {
         padding: 10px;
-        background-color: #3d3f3d;
+        background-color: #f4fef4;
         margin: 20px 0;
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -150,7 +160,7 @@ footer a {
     }
     
     .product, .category, .testimonial {
-        background-color: #2a2929;
+        background-color:#9cd1e8;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
@@ -196,7 +206,7 @@ footer a {
         width: 200px;
         height: 180px;
         margin: 10px;
-        background-color: #dbe3dada;
+        background-color: #9cd1e8;
         border: 1px solid #400ee5;
         border-radius: 10px;
         padding: 20px;
