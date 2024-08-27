@@ -2,18 +2,53 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+
+
 
 
 def home(request):
-    return render(request, 'main.html')
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = None
+    return render(request, 'main.html', {'username': username})
 
 def chat(request):
     if request.method == 'POST':
         return redirect(reverse('home'))
     return render(request, 'chat.html')
 
-def login(request):
+@login_required
+def login_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not email or not password:
+            messages.error(request, 'Email and password are required')
+            return render(request, 'login.html')
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, 'Invalid email or password')
+            return render(request, 'login.html')
+
+        user = authenticate(request, username=user.username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'You have successfully logged in')
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid email or password')
+            return render(request, 'login.html')
+
     return render(request, 'login.html')
+
+
 
 def cart(request):
     return render(request, 'cart.html')
