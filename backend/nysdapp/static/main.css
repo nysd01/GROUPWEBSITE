@@ -22,7 +22,7 @@ nav a {
     font-size: 18px;
 }
 nav a:hover {
-    color: rgb(87, 173, 235);
+    color: rgb(14, 52, 79);
 }
 #logo{
     border-radius: 360px;
@@ -47,6 +47,7 @@ video {
     padding-top: 0;
     padding-bottom: 130;
     border-radius: 20px;
+  
 }
 .maincontent{ 
     text-align: center;

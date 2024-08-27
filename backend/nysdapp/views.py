@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from .models import Subscriber
+from .forms import SubscriberForm
+
 
 
 
@@ -14,6 +17,8 @@ def home(request):
     else:
         username = None
     return render(request, 'main.html', {'username': username})
+
+
 
 def chat(request):
     if request.method == 'POST':
@@ -102,3 +107,17 @@ def search_view(request):
             results = ['arduino uno, sensors, leds, motors']  # Replace with your search results
             return render(request, 'search_results.html', {'results': results})
     return redirect('home')           
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscriberForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You have successfully subscribed to the newsletter.')
+            return redirect('home')  
+        else:
+            messages.error(request, 'There was an error with your submission.')
+    else:
+        form = SubscriberForm()
+    
+    return render(request, 'main.html', {'form': form})
