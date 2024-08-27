@@ -13,7 +13,13 @@
     <body>
         <header>
             <img id="logo" src="{% static 'image/logo nysd.jpg'%}" width="100px" height="100px" alt="NYSD" style="box-shadow: 0 0 10px rgba(14, 6, 243, 0.655);">
-            <h1 class="username">Noumbissi Yamdjeuson Stanley Derek</h1>  
+            {% if username %}
+                <h1 class="username">Welcome, {{ username }}</h1>
+            {% else %}
+                <h1 class="username">Welcome, Guest!</h1>
+            {% endif %}
+              
+
         <h1 class="search-bar">
      
         <form action="{% url 'search' %}" method="get"> 

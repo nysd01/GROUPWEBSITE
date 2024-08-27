@@ -3,18 +3,24 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+
 
 
 
 def home(request):
-    return render(request, 'main.html')
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = None
+    return render(request, 'main.html', {'username': username})
 
 def chat(request):
     if request.method == 'POST':
         return redirect(reverse('home'))
     return render(request, 'chat.html')
 
-
+@login_required
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
