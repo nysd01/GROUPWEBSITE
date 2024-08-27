@@ -18,4 +18,5 @@ urlpatterns = [
     path('subscribe/', views.subscribe, name='subscribe'),
 
 
+
 ]

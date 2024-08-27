@@ -177,9 +177,9 @@
         <section class="newsletter">
             <h2>Stay Updated</h2>
             <p>Sign up for our newsletter to get the latest news and special offers.</p>
-            <form action="{% url 'home' %}" method="post">
+            <form action="{% url 'subscribe' %}" method="post">
                 {% csrf_token %}
-                {{ form.as_p }} 
+                {{ form.as_p }}
                 <button class="btn btn-primary" type="submit" style="box-shadow: darkblue; border-radius: 5px; background-color: aqua;">Subscribe</button>
             </form>
             {% for message in messages %}

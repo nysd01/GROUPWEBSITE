@@ -16,7 +16,8 @@ def home(request):
         username = request.user.username
     else:
         username = None
-    return render(request, 'main.html', {'username': username})
+    form = SubscriberForm()    
+    return render(request, 'main.html', {'username': username, 'form': form})
 
 
 
@@ -114,7 +115,7 @@ def subscribe(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'You have successfully subscribed to the newsletter.')
-            return redirect('home')  
+            return redirect('home')
         else:
             messages.error(request, 'There was an error with your submission.')
     else:
