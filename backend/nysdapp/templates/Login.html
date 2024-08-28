@@ -11,7 +11,9 @@
 <body>
     <div class="wrapper">
         {% for message in messages %}
-        <p  style="z-index:2;background-color: yellow;height:25px;width: 800px;color: blue;text-align: center;">{{ message }}</p>
+        <p style="z-index:2; background-color: yellow; height: 25px; width: 720px; color: blue; text-align: center;">
+            {{ message }}
+        </p>
         {% endfor %}
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
@@ -22,14 +24,11 @@
             <div class="input-box">
                 <input type="password" placeholder="Password" id="password" name="password" required>
             </div>
-                <button class="btn" type="submit">Login</button>
-                <div class="register-link">
-                    <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
-                </div>
+            <button class="btn" type="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
             </div>
         </form>
-    
-
     </div>
 </body>
 </html>
