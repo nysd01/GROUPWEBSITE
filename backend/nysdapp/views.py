@@ -21,9 +21,10 @@ def home(request):
         username = None
 
     form = SubscriberForm() 
-
     products = Product.objects.all()   
-    return render(request, 'main.html', {'username': username, 'form': form, 'products': products})
+    cart_item_count = CartItem.objects.filter(session_id=request.session.session_key).count()
+
+    return render(request, 'main.html', {'username': username, 'form': form, 'products': products,'cart_item_count': cart_item_count })
 
 
 
@@ -151,7 +152,11 @@ def add_to_cart(request, product_id):
             else:
                 cart_item.quantity += quantity
             cart_item.save()
-            return redirect('cart_detail')
+             # Render the cart page with the updated cart items
+            cart_items = CartItem.objects.filter(session_id=session_id)
+            total_price = sum(item.subtotal() for item in cart_items)
+            return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
+            
         else:
             messages.error(request, 'Invalid form data')
             return redirect('cart_detail')
@@ -162,3 +167,8 @@ def cart_detail(request):
     cart_items = CartItem.objects.filter(session_id=session_id)
     total_price = sum(item.subtotal() for item in cart_items)
     return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
+
+@login_required
+def reset_cart(request):
+    CartItem.objects.filter(session_id=request.session.session_key).delete()
+    return redirect('cart')
