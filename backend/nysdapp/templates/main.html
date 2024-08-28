@@ -42,6 +42,7 @@
           
         </header>
         <main>
+           
             <section class ="presentation">
                 <div class="video-container" >
                      <video autoplay loop muted>
@@ -57,69 +58,40 @@
            
                     <p class="text-gradient">WELCOME TO ELECTRONYSD</p>
                 </div>
+                <div class="cart-icon">
+                    <a href="{% url 'cart' %}">
+                    <img src="{% static 'image/Cart.jpeg'%}" alt="Cart" width="30" height="30" style="border-radius:30px;">
+                    <span id="cart-count">0</span> 
+                    </a>
+                </div>
             </section>
 
-                <section class="featured-products">
-                    <h2>Featured Products</h2>
-                    <div class="cart-icon">
-                        <a href="{% url 'cart' %}">
-                        <img src="{% static 'image/Cart.jpeg'%}" alt="Cart" width="30" height="30" style="border-radius:30px;">
-                        <span id="cart-count">0</span> 
-                        </a>
+            <section class="featured-products">
+                <h2>Featured Products</h2>
+                
+                <div class="product-grid">
+                    {% for product in products %}
+                    <div class="product">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <div class="product-details">
+
+                            <h3>{{ product.name }}</h3>
+                            <p class="product-description">{{ product.description }}</p>
+                            <p>{{ product.price }}XFA</p>
+                            
+                            <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="number" name="quantity" value="1" min="1">
+                                <button type="submit" class="btn">Add</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="product-grid">
-                        
-                        <div class="product">
-                            <img src="{% static 'image/arduino.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
-                            <h3>ARDUINO UNO</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/sonar-sensor.jpg'%}" alt="Product " style="width:200PX; height: 200PX;">
-                            <h3>SONAR SENSOR</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/potentiometer.jpg'%}" alt="Product " style="width:200PX; height: 200PX;">
-                            <h3>POTENTIOMETER</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/breadboard .jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
-                            <h3>BREAD BOARD</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/step-motor.jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
-                            <h3>STEP MOTOR</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/7segment.jpg'%}" alt="Product" style="width:200PX; height: 200PX;">
-                            <h3>7-SEGMENTS</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/battery.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
-                            <h3>9V BATTERY</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        <div class="product">
-                            <img src="{% static 'image/switches.jpg'%}" alt="Product 1" style="width:200PX; height: 200PX;">
-                            <h3>BOTTONS</h3>
-                            <p>$10.00</p>
-                            <a href="#" class="btn">Add</a>
-                        </div>
-                        
-                    </div>
-                </section>
+                    {% endfor %}
+                    
+                    
+                </div>
+            </section>
+            
 
                 <section class="categories">
                     <h2>Categories</h2>
@@ -183,7 +155,7 @@
                 <button class="btn btn-primary" type="submit" style="box-shadow: darkblue; border-radius: 5px; background-color: aqua;">Subscribe</button>
             </form>
             {% for message in messages %}
-                <p>{{ message }}</p>
+                <p style="background-color:gold;border-radius: 4px;">{{ message }}</p>
             {% endfor %}
         </section>
             
