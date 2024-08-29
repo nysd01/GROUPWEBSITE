@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -8,6 +9,8 @@ from .models import Subscriber
 from .forms import SubscriberForm
 from .models import Product, CartItem
 from .forms import AddToCartForm
+
+
 
 
 
@@ -62,9 +65,11 @@ def login_view(request):
     return render(request, 'login.html')
 
 
-
 def cart(request):
-    return render(request, 'cart.html')
+    session_id = request.session.session_key
+    cart_items = CartItem.objects.filter(session_id=session_id)
+    total_price = sum(item.subtotal() for item in cart_items)
+    return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
 def service(request):
     return render(request, 'service.html')  
@@ -109,12 +114,12 @@ def search_view(request):
     if request.method == 'GET':
         search_term = request.GET.get('q')
         if search_term:
-            # You can add your search logic here
-            # For example, you can use Django's ORM to search a model
-            # results = MyModel.objects.filter(name__icontains=search_term)
-            results = ['arduino uno, sensors, leds, motors']  # Replace with your search results
-            return render(request, 'search_results.html', {'results': results})
-    return redirect('home')           
+            products = Product.objects.filter(
+                Q(name__icontains=search_term) |
+                Q(description__icontains=search_term)
+            )
+            return render(request, 'search_results.html', {'results': products})
+    return redirect('home')      
 
 def subscribe(request):
     if request.method == 'POST':
@@ -160,7 +165,7 @@ def add_to_cart(request, product_id):
         else:
             messages.error(request, 'Invalid form data')
             return redirect('cart_detail')
-    return redirect('cart_detail')
+  
 
 def cart_detail(request):
     session_id = request.session.session_key
@@ -171,4 +176,4 @@ def cart_detail(request):
 @login_required
 def reset_cart(request):
     CartItem.objects.filter(session_id=request.session.session_key).delete()
-    return redirect('cart')
+    return redirect('home')

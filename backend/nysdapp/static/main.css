@@ -330,4 +330,15 @@ footer a {
   text-align: right;
   position: static;
 }
+.btn-danger{
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #f44336;
+}
 
+.btn-danger:hover {
+  background-color: #f11212;
+}
