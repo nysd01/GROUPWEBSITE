@@ -1,12 +1,13 @@
-{% extends 'base.html' %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search.css' %}">
+<h1>Search Results</h1>
 
-{% block content %}
-  <h1>Search Results</h1>
-  <ul>
-    {% for result in results %}
-      <li>{{ result.name }} ({{ result.description }})</li>
+<ul>
+    {% for product in results %}
+        <li>
+            {{ product.name }} ({{ product.description }})
+        </li>
     {% empty %}
-      <li>No results found.</li>
+        <li>No results found.</li>
     {% endfor %}
-  </ul>
-{% endblock %}
+</ul>
