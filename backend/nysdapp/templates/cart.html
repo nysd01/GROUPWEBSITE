@@ -36,9 +36,9 @@
                     <tr>
                         {% load math_filters %}
                         <td>{{ item.product.name }}</td>
-                        <td>€{{ item.product.price }}</td>
+                        <td>{{ item.product.price }}XFA</td>
                         <td>{{ item.quantity }}</td>
-                        <td>€{{ item.product.price|multiply:item.quantity }}</td>
+                        <td>{{ item.product.price|multiply:item.quantity }}XFA</td>
                     {% endfor %}
                     {% else %}
                     <tr>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
             <div class="cart-total">
-                <h3>Total: €{{ total_price|default:0 }}</h3>
+                <h3>Total: {{ total_price|default:0 }}XFA</h3>
             </div>
         </div>
     </main>
