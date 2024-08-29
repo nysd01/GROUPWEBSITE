@@ -67,11 +67,11 @@
             </section>
 
             <section class="featured-products">
-                <h2>Featured Products</h2>
+                    <h2>Featured Products</h2>
                 <div class="reset-cart-btn">
                     <form action="{% url 'reset_cart' %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Reset Cart</button>
+                        <button type="submit" class="btn-danger">Reset Cart</button>
                     </form>
                 </div>
 
