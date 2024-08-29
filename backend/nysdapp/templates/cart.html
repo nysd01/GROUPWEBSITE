@@ -49,6 +49,7 @@
             </table>
             <div class="cart-total">
                 <h3>Total: {{ total_price|default:0 }}XFA</h3>
+                <a class="payment" href="{% url 'payment' %}">deposit payment</a>
             </div>
         </div>
     </main>
