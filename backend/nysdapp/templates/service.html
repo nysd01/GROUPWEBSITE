@@ -7,7 +7,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'service.css' %}">
 </head>
-<body>
+<main>
     <header>
         <h1>WELCOME TO OUR PLATFORM</h1>
         <p>Here you will find the list of items we have, listed below.<br> 
@@ -15,7 +15,7 @@
         the price will be shown as soon as you enter your command.</p>     
     </header>
 
-    <main>
+    <body>
         <h2>THE ELECTRONIC ITEMS WE'VE GOT!!!</h2>
         <div class="grid-container">
             <div class="grid-item">
@@ -39,13 +39,24 @@
                 </ul>
             </div>
         </div>
-    </main>
 
     <footer>
+        <div class="grid-container1">
+            <div class="grid-item1">
         <p>Enter your command:</p>
         <form method="post" action="/your-server-endpoint">
             <input type="text" placeholder="Your command" id="command" name="command">
-        </form>
+            <button>submit</button>
+    </form>
+            </div>
+    <div class="grid-item1">
+    <p style="align-items: end;">We awaits your comments on our goods: &#128525; &#128516;
+    <textarea type="text"></textarea>
+    <button>submit</button>
+</p>
+    </div>
+</div>
     </footer>
+</main>
 </body>
 </html>
