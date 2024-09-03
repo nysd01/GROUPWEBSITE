@@ -71,4 +71,21 @@ padding: 20px 45px 20px 20px;
     color: #333;
     font-weight: 600;
 }
+.errormessage{
+    margin-bottom: 15px;
+    background-color: #ffe6e6;
+    border: 1px solid #ff4d4d;
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeout 7s forwards;
+}
+@keyframes fadeout{
+    from{
+        display: block;
+    }
+
+    to{
+        display: none;
+    }
+}
 

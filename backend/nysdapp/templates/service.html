@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SERVICE PAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'service.css' %}">
+</head>
+<body>
+    <header>
+        <h1>WELCOME TO OUR PLATFORM</h1>
+        <p>Here you will find the list of items we have, listed below.<br> 
+        Feel free to enter your commands in the command box below,<br> 
+        the price will be shown as soon as you enter your command.</p>     
+    </header>
+
+    <main>
+        <h2>THE ELECTRONIC ITEMS WE'VE GOT!!!</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <ul>
+                    <li>RAM</li>
+                    <li>Computer Cooling System (Fan)</li>
+                    <li>Hard Drive</li>
+                    <li>CMOS Battery</li>
+                    <li>Computer Peripherals (Connectors)</li>
+                    <li>ROM</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="grid-item">
+                <ul>
+                    <li>Cables</li>
+                    <li>LED</li>
+                    <li>Sensors</li>
+                    <li>Motors</li>
+                    <li>Breadboard</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Enter your command:</p>
+        <form method="post" action="/your-server-endpoint">
+            <input type="text" placeholder="Your command" id="command" name="command">
+        </form>
+    </footer>
+</body>
+</html>

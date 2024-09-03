@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form | Codehal</title>
+    <title>Login Form</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'Login.css' %}">
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        {% for message in messages %}
+        <p style="z-index:2; background-color: yellow; height: 25px; width: 720px; color: blue; text-align: center;">
+            {{ message }}
+        </p>
+        {% endfor %}
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
             <h1>LOGIN</h1>
             <div class="input-box">
-                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Email" id="email" name="email">
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" id="password" name="password" required>
             </div>
-                <button class="btn">Login</button>
-                <div class="register-link">
-                    <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
-                </div>
+            <button class="btn" type="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
             </div>
         </form>
     </div>

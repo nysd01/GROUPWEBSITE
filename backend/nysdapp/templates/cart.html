@@ -1,4 +1,61 @@
 <!DOCTYPE html>
-
 <html>
-<h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cart.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Cart Basket</h1>
+        <nav>
+            <a href="{% url 'home' %}">Continue Shopping</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <h2>Basket Details</h2>
+            {% for message in messages %}
+            <div class="errormessage">{{ message }}</div>
+            {% endfor %}
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart_items %}
+                    {% for item in cart_items %}
+                    <tr>
+                        {% load math_filters %}
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.product.price }}XFA</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.product.price|multiply:item.quantity }}XFA</td>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="4">Your cart is empty.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class="cart-total">
+                <h3>Total: {{ total_price|default:0 }}XFA</h3>
+                <a class="payment" href="{% url 'payment' %}">deposit payment</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p> 2024 Electronysd . all right reserved.</p>
+    </footer>
+</body>
+</html>

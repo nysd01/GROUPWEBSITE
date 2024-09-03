@@ -2,11 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #050316f3;
+    background-color: #f7f7f8f3;
 }
 
 header {
-    background-color: #4caf50;
+    background-color: #25d9e6;
     color: #010f01;
     padding: 20px 0;
     text-align: center;
@@ -17,7 +17,7 @@ main {
 }
 
 .contact-info, .contact-form {
-    background-color: rgb(8, 145, 15);
+    background-color: rgb(104, 110, 104);
     padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
