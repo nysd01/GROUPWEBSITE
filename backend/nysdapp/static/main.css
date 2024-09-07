@@ -1,6 +1,6 @@
 body{
     background-color: #63badf;
-    
+    overflow-x: hidden;
 }
 header {
     display: flex;
@@ -154,6 +154,18 @@ footer a {
         border-radius: 10px;
         
     }
+    .categories{
+      overflow-x: auto;
+      overflow: hidden;
+      padding:25px; 
+    }
+    .category-grid{
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      height: 100%; 
+      overflow-y: hidden;
+    }
     
    .product-grid, .category-grid {
         display: flex;
@@ -241,7 +253,6 @@ footer a {
       overflow: hidden; 
       width: 100%; 
       height: 450px;
-      overflow-x: auto;
       white-space: nowrap;
        
   }
