@@ -17,6 +17,9 @@
 
     <main>
         <h2>THE ELECTRONIC ITEMS WE'VE GOT!!!</h2>
+      
+        <p>{{ message }}</p>
+        
         <div class="grid-container">
             <div class="grid-item">
                 <ul>
@@ -50,8 +53,11 @@
 
     <footer>
         <p>Enter your command:</p>
-        <form method="post" action="/your-server-endpoint">
-            <input type="text" placeholder="Your command" id="command" name="command">
+       
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="command" placeholder="Enter a command">
+            <button type="submit">Submit</button>
         </form>
     </footer>
 </body>

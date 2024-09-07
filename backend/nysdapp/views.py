@@ -180,3 +180,20 @@ def cart_detail(request):
 def reset_cart(request):
     CartItem.objects.filter(session_id=request.session.session_key).delete()
     return redirect('home')
+
+def service_view(request):
+    if request.method == 'POST':
+        command = request.POST.get('command')
+        if command: 
+            product = Product.objects.filter(name__icontains=command).first()
+            if product:
+                message = f'The price of {product.name} is {product.price}'
+            else:
+                message = 'Product not found'
+            return render(request, 'service.html', {'message': message})
+        else:
+            message = 'Please enter a command'
+            return render(request, 'service.html', {'message': message})
+    else:
+        services = Service.objects.all() 
+        return render(request, 'service.html', {'services': services})
