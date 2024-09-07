@@ -72,7 +72,10 @@ def cart(request):
     return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
 def service(request):
-    return render(request, 'service.html')  
+    return render(request, 'service.html') 
+
+def about(request):
+    return render(request, 'about.html')      
 
 def contact(request):
     return render(request, 'contact.html')      
