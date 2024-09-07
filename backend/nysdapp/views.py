@@ -77,6 +77,9 @@ def service(request):
 def contact(request):
     return render(request, 'contact.html')      
 
+def payment(request):
+    return render(request, 'payment.html')   
+
 def register(request):
     if request.method == "POST":
         username = request.POST.get('username')
