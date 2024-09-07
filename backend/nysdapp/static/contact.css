@@ -17,11 +17,8 @@ main {
 }
 
 .contact-info, .contact-form {
-    background-color: rgb(104, 110, 104);
     padding: 20px;
     margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info h2, .contact-form h2 {
@@ -35,6 +32,41 @@ main {
 
 .contact-form label {
     margin: 10px 0 5px;
+}
+
+.person {
+    background-color: #333; /* changed to dark grey */
+    padding: 20px;
+    margin-bottom: 23px; /* added 3px margin to separate each person div */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.person-info {
+    flex-basis: 70%;
+}
+
+.person-photo {
+    flex-basis: 30%;
+    margin-left: auto; /* push the photo to the right corner */
+    text-align: right;
+}
+
+.person-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.person:not(:last-child) {
+    padding-bottom: 20px;
+    margin-bottom: 23px; /* added 3px margin to separate each person div */
 }
 
 footer {
