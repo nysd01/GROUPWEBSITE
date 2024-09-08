@@ -25,7 +25,9 @@ urlpatterns = [
     path('payment/',views.payment,name='payment'),
     path('service/', views.service_view, name='service_view'),
     path('about/', views.about,name='about'),
-
+    path('add_testimonial/', views.add_testimonial, name='add_testimonial'),
+    path('testimonials/', views.testimonials, name='testimonials'),
+    
 
 ]
 if settings.DEBUG:
