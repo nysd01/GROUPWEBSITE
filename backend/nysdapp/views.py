@@ -9,6 +9,9 @@ from .models import Subscriber
 from .forms import SubscriberForm
 from .models import Product, CartItem
 from .forms import AddToCartForm
+from django.contrib.auth import authenticate, login as auth_login
+
+
 
 
 
@@ -36,8 +39,8 @@ def chat(request):
         return redirect(reverse('home'))
     return render(request, 'chat.html')
 
-@login_required
-def login_view(request):
+
+def user_login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -55,7 +58,7 @@ def login_view(request):
         user = authenticate(request, username=user.username, password=password)
 
         if user is not None:
-            login(request, user)
+            auth_login(request, user) 
             messages.success(request, 'You have successfully logged in')
             return redirect('home')
         else:
