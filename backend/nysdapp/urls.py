@@ -19,30 +19,13 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('search/', views.search_view, name='search'),
     path('cart/',views.cart, name='cart'),
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     path('subscribe/', views.subscribe, name='subscribe'),
     path('cart/', views.cart_detail, name='cart_detail'),
     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('reset_cart/', views.reset_cart, name='reset_cart'),
     path('payment/',views.payment,name='payment'),
-<<<<<<< Updated upstream
     path('service/', views.service_view, name='service_view'),
-<<<<<<< Updated upstream
     path('about/', views.about,name='about'),
-=======
-    path('about/', views.about,name='about'),
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-=======
-<<<<<<< Updated upstream
-=======
-    path('about/', views.about,name='about'),
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 
 ]
