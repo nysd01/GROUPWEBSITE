@@ -31,7 +31,14 @@ urlpatterns = [
     path('payment/',views.payment,name='payment'),
 <<<<<<< Updated upstream
     path('service/', views.service_view, name='service_view'),
+<<<<<<< Updated upstream
     path('about/', views.about,name='about'),
+=======
+    path('about/', views.about,name='about'),
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
+<<<<<<< Updated upstream
 =======
     path('about/', views.about,name='about'),
 >>>>>>> Stashed changes
