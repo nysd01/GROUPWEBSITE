@@ -6,21 +6,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import Subscriber
-from .forms import SubscriberForm
-from .models import Product, CartItem
+from .forms import SubscriberForm, TestimonialForm
+from .models import Product, CartItem, Testimonial
 from .forms import AddToCartForm
 from django.contrib.auth import authenticate, login as auth_login
 
 
-
-
-
-
-
-
-
 def home(request):
-
     if request.user.is_authenticated:
         username = request.user.username
     else:
@@ -29,10 +21,10 @@ def home(request):
     form = SubscriberForm() 
     products = Product.objects.all()   
     cart_item_count = CartItem.objects.filter(session_id=request.session.session_key).count()
+    testimonial_form = TestimonialForm()  
+    testimonials = Testimonial.objects.all()  
 
-    return render(request, 'main.html', {'username': username, 'form': form, 'products': products,'cart_item_count': cart_item_count })
-
-
+    return render(request, 'main.html', {'username': username, 'form': form, 'products': products, 'cart_item_count': cart_item_count, 'testimonial_form': testimonial_form, 'testimonials': testimonials})
 
 def chat(request):
     if request.method == 'POST':
@@ -203,3 +195,21 @@ def service_view(request):
     else:
         services = Service.objects.all() 
         return render(request, 'service.html', {'services': services})
+
+@login_required
+def add_testimonial(request):
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES)
+        if form.is_valid():
+            testimonial = form.save(commit=False)
+            testimonial.name = request.user.username
+            testimonial.save()
+            return redirect('testimonials')
+    else:
+        form = TestimonialForm()
+    return render(request, 'add_testimonial.html', {'form': form})
+
+def testimonials(request):
+    testimonials = Testimonial.objects.all()
+    return render(request, 'testimonials.html', {'testimonials': testimonials})        
+

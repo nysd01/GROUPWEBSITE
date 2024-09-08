@@ -1,6 +1,7 @@
 from django import forms
 from .models import Subscriber
 from .models import CartItem
+from .models import Testimonial
 
 class SubscriberForm(forms.ModelForm):
     class Meta:
@@ -22,3 +23,8 @@ class AddToCartForm(forms.ModelForm):
         widgets = {
             'quantity': forms.NumberInput(attrs={'min': '1', 'value': '1'}),
         }
+
+class TestimonialForm(forms.ModelForm):
+    class Meta:
+        model = Testimonial
+        fields = ('image', 'testimonial')

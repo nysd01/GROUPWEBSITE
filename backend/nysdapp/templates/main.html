@@ -142,17 +142,13 @@
         <section class="testimonials">
             <h2>What Our Customers Say</h2>
             <div class="testimonial">
-                <p>"Great products and fast delivery!"</p>
-                <h3>- Adien James</h3>
-                <p>"Very affordable price they offer!"</p>
-                <h3>- Max Benz</h3>
-                <p>"No need to buy shipping tax, they all do it for us"</p>
-                <h3>- Lucifer Morningstar</h3>
-                <p>"Best electronics service ever..."</p>
-                <h3>- Zoe Midnightsun</h3>
-
+                {% for testimonial in testimonials %}
+                <h3>------ {{ testimonial.name }}------</h3>
+                <p>{{ testimonial.testimonial }}</p>
+                {% endfor %}
             </div>
-            <button class="read-more-btn">Read More</button>
+          <a href="{% url 'testimonials' %}" class="read-more-btn">Read More</a>
+            <a href="{% url 'add_testimonial' %}">Add Testimonial</a>
         </section>
 
 

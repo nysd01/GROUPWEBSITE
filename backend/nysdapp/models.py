@@ -37,3 +37,12 @@ class CartItem(models.Model):
 
     def subtotal(self):
         return self.quantity * self.product.price
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='testimonials/')
+    testimonial = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name    
