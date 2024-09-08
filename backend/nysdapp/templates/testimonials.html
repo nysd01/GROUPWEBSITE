@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testimonials</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'testimonials.css' %}">
+</head>
+<body>
+    <header>
+        <h1>What Our Customers Say</h1>
+    </header>
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            {% for testimonial in testimonials %}
+            <div class="testimonial">
+                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+                <h2>{{ testimonial.name }}</h2>
+                <p>{{ testimonial.testimonial }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'add_testimonial' %}" class="add-testimonial-btn">Add Testimonial</a>
+    </section>
+</body>
+</html>
