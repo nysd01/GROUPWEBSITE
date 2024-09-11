@@ -13,27 +13,18 @@
           "distDir": "staticfiles_build"
         }
       },
-       {
-      "src": "backend/wsgi.py",
-      "use": "@vercel/python"
+      {
+      "src": "staticfiles/**/*",
+      "use": "@vercel/static"
     },
     {
-      "src": "backend/static/*",
+      "src": "media/**/*",
       "use": "@vercel/static"
     }
     ],
     "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "myfirst/wsgi.py"
-      },
-      {
-      "src": "/(.*)",
-      "dest": "backend/wsgi.py"
-    }
+    { "src": "/media/(.*)", "dest": "/media/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "myfirst/wsgi.py" }
     ]
   }
