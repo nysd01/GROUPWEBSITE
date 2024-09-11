@@ -12,7 +12,15 @@
         "config": {
           "distDir": "staticfiles_build"
         }
-      }
+      },
+       {
+      "src": "backend/wsgi.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "backend/static/*",
+      "use": "@vercel/static"
+    }
     ],
     "routes": [
       {
@@ -22,6 +30,10 @@
       {
         "src": "/(.*)",
         "dest": "myfirst/wsgi.py"
-      }
+      },
+      {
+      "src": "/(.*)",
+      "dest": "backend/wsgi.py"
+    }
     ]
   }
