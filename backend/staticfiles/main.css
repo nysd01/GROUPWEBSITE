@@ -69,7 +69,7 @@ footer {
     align-items: center;
     padding-top: 20px;
     color: white;
-    background-image:url('image/footer\ background.jpg');
+    background-image:url('image/footer%20background.jpg');
     font-size: 14px;
     background-color:rgb(25, 25, 35);
 }
