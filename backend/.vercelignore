@@ -1,5 +1,0 @@
-# Ignore media files
-backend/media
-# Ignore virtual environment or other unnecessary directories
-venv
-.venv

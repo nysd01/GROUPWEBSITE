@@ -1,0 +1,10 @@
+# Ignore the media folder as it contains large files
+backend/media
+backend/staticfiles
+# Ignore virtual environments or any unnecessary directories
+venv
+.venv
+.git
+.gitignore
+*.pyc
+__pycache__
