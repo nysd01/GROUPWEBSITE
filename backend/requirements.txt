@@ -32,7 +32,7 @@ pipenv==2024.0.1
 platformdirs==4.2.2
 PyAudio==0.2.14
 pygame==2.6.0
-pypiwin32==223
+#pypiwin32==223
 pyserial==3.5
 pyttsx3==2.90
 pytz==2024.1
