@@ -29,7 +29,7 @@ SECRET_KEY = ')hgi7^vg0$hgnnsn7zhjcvrtd_n*$hp3^2s4hxlsq%ios#!p(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', 'typw01s-projects.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
 
 # Application definition
