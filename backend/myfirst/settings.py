@@ -30,7 +30,7 @@ SECRET_KEY = ')hgi7^vg0$hgnnsn7zhjcvrtd_n*$hp3^2s4hxlsq%ios#!p(('
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.onrender.com']
 
 
 # Application definition
