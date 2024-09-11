@@ -8,7 +8,7 @@
     },
     {
       "src": "backend/build_files.sh",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static"
     },
     {
       "src": "staticfiles/**/*",
