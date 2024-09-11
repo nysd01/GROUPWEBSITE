@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nysdapp',
-    'debug_toolbar',
     'mathfilters',
 ]
 
