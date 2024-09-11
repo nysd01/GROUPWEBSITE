@@ -8,7 +8,7 @@ colorama==0.4.6
 comtypes==1.4.4
 DateTime==5.5
 distlib==0.3.8
-Django==5.1
+Django==4.2.16
 django-debug-toolbar==4.4.6
 django-mathfilters==1.0.0
 et-xmlfile==1.1.0
