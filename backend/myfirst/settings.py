@@ -103,9 +103,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'myfirst', 'persistent', 'db.sqlite3'),
+        'ATOMIC_REQUESTS': True,
     }
 }
-
 
 
 # Password validation
