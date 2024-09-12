@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'myapp.middleware.EnsureSessionMiddleware',
        
 ]
 
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'myfirst.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'nysdapp', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
