@@ -34,7 +34,6 @@ def chat(request):
 
     if request.method == 'POST':
         
-        return redirect(reverse('home'))
         user_input = request.POST.get('message')
         if user_input:
             # Check if the query is about catalog or products
