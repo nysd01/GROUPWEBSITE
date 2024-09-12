@@ -97,9 +97,10 @@ WSGI_APPLICATION = 'myfirst.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/persistent/db.sqlite3',  # Path to persistent storage
+        'NAME': os.path.join(BASE_DIR, 'myfirst', 'persistent', 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
