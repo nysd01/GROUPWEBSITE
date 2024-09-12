@@ -27,7 +27,7 @@ SECRET_KEY = ')hgi7^vg0$hgnnsn7zhjcvrtd_n*$hp3^2s4hxlsq%ios#!p(('
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.onrender.com']
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'nysdapp.middleware.EnsureSessionMiddleware',
        
 ]
 
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'myfirst.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'nysdapp', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,10 +88,17 @@ WSGI_APPLICATION = 'myfirst.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'myfirst', 'persistent', 'db.sqlite3'),
     }
 }
 

@@ -41,16 +41,10 @@ def user_login_view(request):
             messages.error(request, 'Email and password are required')
             return render(request, 'login.html')
 
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            messages.error(request, 'Invalid email or password')
-            return render(request, 'login.html')
-
-        user = authenticate(request, username=user.username, password=password)
+        user = authenticate(request, username=User.objects.filter(email=email).first(), password=password)
 
         if user is not None:
-            auth_login(request, user) 
+            auth_login(request, user)
             messages.success(request, 'You have successfully logged in')
             return redirect('home')
         else:
@@ -58,6 +52,7 @@ def user_login_view(request):
             return render(request, 'login.html')
 
     return render(request, 'login.html')
+
 
 
 def cart(request):
@@ -89,27 +84,21 @@ def register(request):
 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already exists")
-            return redirect('/register/')
-
         elif User.objects.filter(email=email).exists():
             messages.error(request, "Email already exists")
-            return redirect('/register/')    
-
         elif pass1 != pass2:
-            messages.error(request,"Password does not match!")
-            return render(request, 'register.html')
-
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name = firstname
-        myuser.last_name = lastname
-
-        myuser.save()
-
-        messages.success(request, 'your account has been successfully created')
-        return redirect('login')
-    else:
-
+            messages.error(request, "Passwords do not match")
+        else:
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.first_name = firstname
+            myuser.last_name = lastname
+            myuser.save()
+            messages.success(request, 'Your account has been successfully created')
+            return redirect('login')
         return render(request, 'register.html')
+
+    return render(request, 'register.html')
+
 
 def search_view(request):
     if request.method == 'GET':
@@ -137,13 +126,9 @@ def subscribe(request):
     return render(request, 'main.html', {'form': form})
 
 
-
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     session_id = request.session.session_key
-    if not session_id:
-        request.session.create()
-        session_id = request.session.session_key
 
     if request.method == 'POST':
         form = AddToCartForm(request.POST)
@@ -152,20 +137,17 @@ def add_to_cart(request, product_id):
             if quantity <= 0:
                 messages.error(request, 'Quantity must be a positive integer')
                 return redirect('cart_detail')
+
             cart_item, created = CartItem.objects.get_or_create(product=product, session_id=session_id)
-            if created:
-                cart_item.quantity = quantity
-            else:
-                cart_item.quantity += quantity
+            cart_item.quantity = cart_item.quantity + quantity if not created else quantity
             cart_item.save()
-             # Render the cart page with the updated cart items
-            cart_items = CartItem.objects.filter(session_id=session_id)
-            total_price = sum(item.subtotal() for item in cart_items)
-            return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
-            
+
+            return redirect('cart_detail')  # Redirect after POST to avoid resubmission
         else:
             messages.error(request, 'Invalid form data')
-            return redirect('cart_detail')
+
+    return redirect('cart_detail')
+
   
 
 def cart_detail(request):
