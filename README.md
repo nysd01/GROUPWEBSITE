@@ -1,7 +1,7 @@
 
-# Group Website Project
+# Electronysd Website Project
 
-Welcome to the **Group Website Project**, a full-stack web application built with Django for the backend. This project provides various features like user authentication, product management, and testimonial submissions, with a clean and functional interface.
+Welcome to the **Electronysd Website Project**, a full-stack web application built with Django for the backend. This project provides various features like user authentication, product management, and testimonial submissions, with a clean and functional interface.
 
 ## Key Features
 
