@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'myapp.middleware.EnsureSessionMiddleware',
+    'nysdapp.middleware.EnsureSessionMiddleware',
        
 ]
 
