@@ -27,7 +27,7 @@ SECRET_KEY = ')hgi7^vg0$hgnnsn7zhjcvrtd_n*$hp3^2s4hxlsq%ios#!p(('
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.onrender.com']
@@ -87,13 +87,19 @@ WSGI_APPLICATION = 'myfirst.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+}"""
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/persistent/db.sqlite3',  # Path to persistent storage
+    }
+}
 
 
 # Password validation
