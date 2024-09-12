@@ -35,8 +35,17 @@ def chat(request):
     if request.method == 'POST':
         user_input = request.POST.get('message')
         if user_input:
-            # Customize the prompt for catalog queries
-            prompt = f"You are a helpful assistant for an e-commerce website. A user just asked: {user_input}. Provide a relevant response related to product catalogs, orders, or general inquiries."
+            # Check if the query is about catalog or products
+            if "catalog" in user_input.lower() or "products" in user_input.lower():
+                # Fetch products from the database and generate a custom response
+                products = Product.objects.all()
+                product_list = "\n".join([f"{product.name} - {product.price}" for product in products])
+                prompt = f"A user asked about the catalog. Available products are: {product_list}. Respond to the user."
+            else:
+                # Regular GPT-4 response
+                prompt = f"User: {user_input}"
+
+            # Get GPT-4 response
             bot_message = get_gpt_response(prompt)
 
     return render(request, 'chat.html', {
