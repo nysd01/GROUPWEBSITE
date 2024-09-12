@@ -10,7 +10,8 @@ from .forms import SubscriberForm, TestimonialForm
 from .models import Product, CartItem, Testimonial
 from .forms import AddToCartForm
 from django.contrib.auth import authenticate, login as auth_login
-
+from django.shortcuts import render, redirect
+from .utils import get_gpt_response
 
 def home(request):
     if request.user.is_authenticated:
@@ -26,10 +27,22 @@ def home(request):
 
     return render(request, 'main.html', {'username': username, 'form': form, 'products': products, 'cart_item_count': cart_item_count, 'testimonial_form': testimonial_form, 'testimonials': testimonials})
 
+
 def chat(request):
+    bot_message = "Hello! How can I assist you today?"
+    user_input = None
+
     if request.method == 'POST':
-        return redirect(reverse('home'))
-    return render(request, 'chat.html')
+        user_input = request.POST.get('message')
+        if user_input:
+            # Customize the prompt for catalog queries
+            prompt = f"You are a helpful assistant for an e-commerce website. A user just asked: {user_input}. Provide a relevant response related to product catalogs, orders, or general inquiries."
+            bot_message = get_gpt_response(prompt)
+
+    return render(request, 'chat.html', {
+        'bot_message': bot_message,
+        'user_message': user_input,
+    })
 
 
 def user_login_view(request):

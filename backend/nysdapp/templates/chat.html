@@ -5,39 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Page</title>
     {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'chat.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'chat.css' %}">
 </head>
-<body background="{% static 'image/bot.jpg'%} ">
+<body background="{% static 'image/bot.jpg' %}">
     <div class="chat-container">
         <div class="chat-header">
-            
-            <form action = "{% url 'chat' %}" method="post">
+            <form action="{% url 'chat' %}" method="post">
                 {% csrf_token %}
                 <button class="backbtn" type="submit">
-                    <img src="{% static 'image/backbutton.jpg'%}" height="40px" width="40px"  style="border-radius: 15px ;" >
+                    <img src="{% static 'image/backbutton.jpg' %}" height="40px" width="40px" style="border-radius: 15px;">
                 </button>
             </form>
-
             <span class="chat-headtext">Chat With NYSDBOT</span>
         </div>
         <div class="chat-box">
+            {% if user_message %}
+                <div class="message user-message">
+                    <div class="message-content">
+                        <p>{{ user_message }}</p>
+                    </div>
+                </div>
+            {% endif %}
             <div class="message bot-message">
                 <div class="avatar">
-                    <img src="{% static 'image/bot2.jpg'%}" alt="Bot Avatar">
+                    <img src="{% static 'image/bot2.jpg' %}" alt="Bot Avatar">
                 </div>
                 <div class="message-content">
-                    <p>Hello! How can I assist you today?</p>
-                </div>
-            </div>
-            <div class="message user-message">
-                <div class="message-content">
-                    <p>I need help with my order.</p>
+                    <p>{{ bot_message }}</p>
                 </div>
             </div>
         </div>
         <div class="chat-input">
-            <input type="text" placeholder="Write something and send...">
-            <button type="submit">Send</button>
+            <form action="{% url 'chat' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="message" placeholder="Write something and send..." required>
+                <button type="submit">Send</button>
+            </form>
         </div>
     </div>
 </body>
