@@ -105,6 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'myfirst', 'persistent', 'db.sqlite3'),
         'ATOMIC_REQUESTS': True,
+        'CONN_MAX_AGE': 60,
     }
 }
 
