@@ -48,8 +48,6 @@ def chat(request):
 
             # Get GPT-4 response
             bot_message = get_gpt_response(prompt)
-    if request.GET.get('back_button_clicked'):
-        return redirect('home')
 
     return render(request, 'chat.html', {
         'bot_message': bot_message,
