@@ -69,7 +69,7 @@ footer {
     align-items: center;
     padding-top: 20px;
     color: white;
-    background-image:url('image/footer\ background.jpg');
+    background-image:url('image/footer%20background.jpg');
     font-size: 14px;
     background-color:rgb(25, 25, 35);
 }
@@ -129,12 +129,7 @@ footer a {
   .search-dropdown li:hover {
     background-color: #f0f0f0;
   }
-    .hero {
-        text-align: center;
-        padding: 50px 20px;
-        background: url('path/to/hero-image.jpg') no-repeat center center;
-        background-size: cover;
-    }
+
     
     .hero .btn {
         display: inline-block;
