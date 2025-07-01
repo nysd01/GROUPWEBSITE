@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+      
+            {% for message in messages %}
+                <div class="errormessage">{{ message }}</div>
+            {% endfor %}
+       
+
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" id="username" name="username" placeholder="User Name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="pass1" name="pass1" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="pass2" name="pass2" placeholder="Confirm Password" required>
+            </div>
+            
+                <button class="btn" type="submit">Register</button>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>

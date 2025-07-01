@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f8f3;
+}
+
+header {
+    background-color: #25d9e6;
+    color: #021702;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.contact-info, .contact-form {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.contact-info h2, .contact-form h2 {
+    margin-top: 0;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin: 10px 0 5px;
+}
+
+.person {
+    background-color: #e8edf0;
+    padding: 20px;
+    margin-bottom: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.person-info {
+    flex-basis: 70%;
+}
+
+.person-photo {
+    float: right;
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    border-radius: 50px;
+}
+
+
+
+.person:not(:last-child) {
+    padding-bottom: 20px;
+    margin-bottom: 23px;
+}
+
+footer {
+    background-color: #333;
+    color: rgb(59, 235, 24);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
