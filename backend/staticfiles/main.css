@@ -1,5 +1,5 @@
 body{
-    background-color: #63badf;
+    background-color: #05141a;
     overflow-x: hidden;
 }
 header {
@@ -7,7 +7,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(123, 160, 197);
+    background-color: rgb(42, 124, 206);
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(38, 91, 7, 0.92);
 }   

@@ -7,7 +7,7 @@ body {
 
 header {
     background-color: #25d9e6;
-    color: #010f01;
+    color: #021702;
     padding: 20px 0;
     text-align: center;
 }
@@ -35,7 +35,7 @@ main {
 }
 
 .person {
-    background-color: #333;
+    background-color: #e8edf0;
     padding: 20px;
     margin-bottom: 23px;
     display: flex;
